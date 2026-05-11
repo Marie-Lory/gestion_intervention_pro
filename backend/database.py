@@ -11,7 +11,7 @@ engine = create_engine(
     DATABASE_URL,
     connect_args={
         "ssl": {
-            "fake_flag_to_enable_tls": True
+            "ca": "/etc/secrets/ca.pem"
         }
     }
 )
