@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 
 ACCESS_EXPIRE_MIN = int(
-    os.getenv("ACCESS_TOKEN_EXPIRE_MIN")
+    os.getenv("ACCESS_EXPIRE_MIN")
 )
 REFRESH_EXPIRE_DAYS = int(
     os.getenv("REFRESH_EXPIRE_DAYS")
