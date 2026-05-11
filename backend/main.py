@@ -14,7 +14,8 @@ Base.metadata.create_all(bind=engine)
 # Autorisation frontend (React)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["gestion-intervention-pro-indol.vercel.app"],
+    allow_origins=["https://gestion-intervention-1uokvqxj3-marie-lorys-projects.vercel.app",
+    "https://gestion-intervention-pro-indol.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
