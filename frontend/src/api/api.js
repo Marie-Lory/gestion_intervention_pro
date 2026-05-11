@@ -19,25 +19,52 @@ api.interceptors.request.use((config) => {
 
 // Gestion expiration token
 api.interceptors.response.use(
-  res => res,
-  async err => {
+  (res) => res,
 
+  async (err) => {
+
+    // Ignore si erreur login
+    if (err.config.url.includes("/login")) {
+      return Promise.reject(err);
+    }
+
+    // Token expiré
     if (err.response?.status === 401) {
 
       const refresh = localStorage.getItem("refresh");
 
-      const r = await axios.post(
-        `${import.meta.env.VITE_API_URL}/refresh`,
-        {
-          token: refresh
-        }
-      );
+      // Pas de refresh token
+      if (!refresh) {
+        return Promise.reject(err);
+      }
 
-      localStorage.setItem("token", r.data.access_token);
+      try {
 
-      err.config.headers.Authorization = `Bearer ${r.data.access_token}`;
+        const r = await axios.post(
+          `${import.meta.env.VITE_API_URL}/refresh`,
+          {
+            token: refresh
+          }
+        );
 
-      return axios(err.config);
+        localStorage.setItem(
+          "token",
+          r.data.access_token
+        );
+
+        err.config.headers.Authorization =
+          `Bearer ${r.data.access_token}`;
+
+        return axios(err.config);
+
+      } catch (refreshError) {
+
+        localStorage.clear();
+
+        window.location.href = "/";
+
+        return Promise.reject(refreshError);
+      }
     }
 
     return Promise.reject(err);
