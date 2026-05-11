@@ -11,7 +11,7 @@ engine = create_engine(
     DATABASE_URL,
     connect_args={
         "ssl": {
-            "ca": "/etc/secrets/ca.pem"
+            "ca": os.getenv("AIVEN_CA_CERT")
         }
     }
 )
