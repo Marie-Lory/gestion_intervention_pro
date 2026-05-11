@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../assets/CSS_JS/sidebar.css";
+import "../assets/CSS_JS/Sidebar.css";
 import "../assets/CSS_JS/global.css";
 import { useState } from "react";
 
