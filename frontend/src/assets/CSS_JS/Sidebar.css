@@ -1,0 +1,101 @@
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  background: var(--card);
+
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid black;
+
+  box-sizing: border-box;
+
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+/* CONTENU */
+.sidebar-content {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  height: 100%;
+}
+
+/* ===== LIENS ===== */
+.sidebar a {
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+/* couleurs liens */
+.sidebar a:nth-child(2) { color: var(--blue); }     /* Tableau */
+.sidebar a:nth-child(3) { color: var(--yellow); }    /* Users */
+.sidebar a:nth-child(4) { color: var(--red); }   /* Admin */
+
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===== BURGER ===== */
+.hamburger {
+  display: none;
+
+  position: fixed;
+
+  top: 10px;
+  left: 50% !important;
+
+  transform: translateX(-50%);
+
+  z-index: 2000;
+
+  padding: 10px 14px;
+
+  border-radius: 10px;
+  border: 1px solid var(--border);
+
+  background: white;
+
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+  .sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: -240px;
+
+    transition: left 0.3s ease;
+
+    z-index: 1500;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+}

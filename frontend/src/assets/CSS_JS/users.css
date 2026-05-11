@@ -1,0 +1,126 @@
+/* =========================
+   CONTAINER GLOBAL
+========================= */
+.users-container {
+  padding: 20px;
+  color: #e2e8f0;
+}
+
+/* =========================
+   TITRE
+========================= */
+.users-title {
+  color: #3b82f6;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   INPUT USERNAME (BLEU)
+========================= */
+.input-user {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #000000;
+
+  outline: none;
+  transition: 0.2s;
+}
+
+.input-user:focus {
+  transform: scale(1.02);
+}
+
+/* =========================
+   SELECT PROFIL (ROUGE)
+========================= */
+.select-profil {
+  display: block;
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 15px;
+
+  border: 2px solid #ef4444;
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #000000;
+
+  outline: none;
+  transition: 0.2s;
+}
+
+.select-profil:focus {
+  transform: scale(1.02);
+}
+
+/* =========================
+   BOUTON CREATE
+========================= */
+.btn-create {
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: none;
+
+  background: #22c55e;
+  color: white;
+
+  cursor: pointer;
+  margin-bottom: 20px;
+
+  transition: 0.2s;
+}
+
+.btn-create:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+}
+
+/* =========================
+   LISTE USERS
+========================= */
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px;
+  margin-bottom: 10px;
+
+  background: #ffffff;
+  border: 1px solid #334155;
+  border-radius: 10px;
+
+  color: #000000;
+}
+
+/* =========================
+   DELETE BUTTON
+========================= */
+.btn-delete {
+  background: transparent;
+  border: 2px solid #ef4444;
+  color: #ef4444;
+
+  border-radius: 10px;
+  padding: 5px 10px;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-delete:hover {
+  background: #ef4444;
+  color: white;
+}
