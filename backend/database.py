@@ -10,7 +10,9 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_engine(
     DATABASE_URL,
     connect_args={
-        "ssl": {"ca": "/etc/ssl/certs/ca-certificates.crt"}
+        "ssl": {
+            "ca": "/etc/ssl/certs/ca-certificates.crt"
+        }
     }
 )
 
