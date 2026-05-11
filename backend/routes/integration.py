@@ -85,7 +85,14 @@ def update_intervention(id: int, data: dict, db: Session = Depends(get_db), user
     if not intervention:
         raise HTTPException(status_code=404)
 
-    db_user = db.query(User).filter(User.id == data["User"]).first()
+    user_id = data.get("User")
+
+    db_user = db.query(User).filter(User.id == user_id).first()
+
+    if not db_user:
+        raise HTTPException(status_code=404, detail="Utilisateur introuvable")
+
+    intervention.User = db_user.id
 
     intervention.User = db_user.id
     intervention.Statut = data["Statut"]

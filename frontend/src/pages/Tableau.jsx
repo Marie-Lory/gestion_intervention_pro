@@ -69,12 +69,12 @@ export default function Tableau() {
 
   const cleanForm = {
     ...form,
-    UserId: parseInt(form.User),
-    Latitude: form.Latitude === "" ? null : parseFloat(form.Latitude),
-    Longitude: form.Longitude === "" ? null : parseFloat(form.Longitude),
+    User: parseInt(form.User || form.UserId),
+    Latitude: parseFloat(form.Latitude),
+    Longitude: parseFloat(form.Longitude)
   };
 
-    api.post("/integration/", cleanForm)
+  api.put(`/integration/${editId}`, cleanForm)
       .then(() => {
         fetchData();
         resetForm();
