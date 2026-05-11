@@ -102,7 +102,7 @@ export default function Tableau() {
   };
 
   const updateIntervention = () => {
-    api.put(`http://localhost:8000/integration/${editId}`, form)
+    api.put(`/integration/${editId}`, form)
       .then(() => {
         fetchData();
         setEditId(null);
