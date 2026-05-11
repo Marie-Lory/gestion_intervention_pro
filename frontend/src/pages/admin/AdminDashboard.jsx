@@ -18,7 +18,7 @@ export default function AdminDashboard() {
 
   const [form, setForm] = useState({
     User: "",
-    Satut: "Signalé",
+    Statut: "Signalé",
     Descriptif: "",
     Date_de_debut: "",
     Echeance: "",
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
     setForm({
       User: "",
       Profil: "",
-      Satut: "Signalé",
+      Statut: "Signalé",
       Descriptif: "",
       Date_de_debut: "",
       Echeance: "",
@@ -106,7 +106,7 @@ export default function AdminDashboard() {
     setForm({
       User: item.User,
       Profil: item.Profil,
-      Satut: item.Satut,
+      Statut: item.Statut,
       Descriptif: item.Descriptif,
       Date_de_debut: item.Date_de_debut,
       Echeance: item.Echeance,
@@ -206,8 +206,8 @@ export default function AdminDashboard() {
         />
 
         <select
-          value={form.Satut}
-          onChange={(e) => setForm({ ...form, Satut: e.target.value })}
+          value={form.Statut}
+          onChange={(e) => setForm({ ...form, Statut: e.target.value })}
         >
           <option>Signalé</option>
           <option>En cours</option>
@@ -257,12 +257,12 @@ export default function AdminDashboard() {
       <div className="intervention-list">
 
         {data.map((i) => (
-          <div key={i.ID} className={`intervention-card ${getClass(i.Satut)}`}>
+          <div key={i.ID} className={`intervention-card ${getClass(i.Statut)}`}>
 
             <h4>{i.Descriptif}</h4>
             <p><strong>Utilisateur :</strong> {i.UserId}</p>
             <p><strong>Profil :</strong> {i.Profil}</p>
-            <p><strong>Statut :</strong> {i.Satut}</p>
+            <p><strong>Statut :</strong> {i.Statut}</p>
 
             <p>
               <strong>Date début :</strong>

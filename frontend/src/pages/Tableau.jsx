@@ -15,7 +15,7 @@ export default function Tableau() {
 
   const [form, setForm] = useState({
     User: "", // devient USER ID
-    Satut: "Signalé",
+    Statut: "Signalé",
     Descriptif: "",
     Date_de_debut: "",
     Echeance: "",
@@ -62,7 +62,7 @@ export default function Tableau() {
   };
 
   const filtered = data.filter((i) =>
-    statut === "" || i.Satut === statut
+    statut === "" || i.Statut === statut
   );
 
   const addIntervention = () => {
@@ -113,7 +113,7 @@ export default function Tableau() {
   const resetForm = () => {
     setForm({
       User: "",
-      Satut: "Signalé",
+      Statut: "Signalé",
       Descriptif: "",
       Date_de_debut: "",
       Echeance: "",
@@ -185,8 +185,8 @@ export default function Tableau() {
             />
 
             <select
-              value={form.Satut}
-              onChange={(e) => setForm({...form, Satut: e.target.value})}
+              value={form.Statut}
+              onChange={(e) => setForm({...form, Statut: e.target.value})}
             >
               <option>Signalé</option>
               <option>En cours</option>
@@ -267,9 +267,9 @@ export default function Tableau() {
 
           <tbody>
             {filtered.map((i) => (
-              <tr key={i.ID} className={`ligne ${getStatutClass(i.Satut)}`}>
+              <tr key={i.ID} className={`ligne ${getStatutClass(i.Statut)}`}>
                 <td>{i.UserId}</td>
-                <td className={`statut ${getStatutClass(i.Satut)}`}>{i.Satut}</td>
+                <td className={`statut ${getStatutClass(i.Statut)}`}>{i.Statut}</td>
                 <td>{i.Descriptif}</td>
                 <td>{new Date(i.Date_de_debut).toLocaleDateString()}</td>
                 <td>{new Date(i.Echeance).toLocaleDateString()}</td>

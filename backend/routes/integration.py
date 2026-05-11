@@ -35,7 +35,7 @@ def get_all(db: Session = Depends(get_db), user=Depends(get_current_user)):
             "ID": integration.ID,
             "UserId": user.username,
             "Profil": integration.Profil,
-            "Satut": integration.Satut,
+            "Statut": integration.Statut,
             "Descriptif": integration.Descriptif,
             "Date_de_debut": integration.Date_de_debut,
             "Echeance": integration.Echeance,
@@ -60,7 +60,7 @@ def create_intervention(data: dict, db: Session = Depends(get_db), user=Depends(
     intervention = Integration(
         User=db_user.id,
         Profil=db_user.profil,
-        Satut=data["Satut"],
+        Statut=data["Statut"],
         Descriptif=data["Descriptif"],
         Date_de_debut=data["Date_de_debut"],
         Echeance=data["Echeance"],
@@ -88,7 +88,7 @@ def update_intervention(id: int, data: dict, db: Session = Depends(get_db), user
     db_user = db.query(User).filter(User.id == data["User"]).first()
 
     intervention.User = db_user.id
-    intervention.Satut = data["Satut"]
+    intervention.Statut = data["Statut"]
     intervention.Descriptif = data["Descriptif"]
     intervention.Date_de_debut = data["Date_de_debut"]
     intervention.Echeance = data["Echeance"]
@@ -123,8 +123,8 @@ def delete_intervention(id: int, db: Session = Depends(get_db), user=Depends(get
 def get_stats(db: Session = Depends(get_db), user=Depends(get_current_user)):
 
     result = db.query(
-        Integration.Satut,
+        Integration.Statut,
         func.count(Integration.ID)
-    ).group_by(Integration.Satut).all()
+    ).group_by(Integration.Statut).all()
 
     return {status: count for status, count in result}

@@ -30,7 +30,7 @@ class Integration(Base):
 
     Descriptif = Column(String(500))
 
-    Satut = Column(Enum('Signalé','En cours','Abouti'))
+    Statut = Column(Enum('Signalé','En cours','Abouti'))
 
 # Table refresh tokens (JWT)
 class RefreshToken(Base):

@@ -61,7 +61,7 @@ export default function IntervenantDashboard() {
 
           <div
             key={i.ID}
-            className={`intervention-card ${getClass(i.Satut)}`}
+            className={`intervention-card ${getClass(i.Statut)}`}
           >
 
             <h3>{i.Descriptif}</h3>
@@ -69,7 +69,7 @@ export default function IntervenantDashboard() {
             <p><strong>Utilisateur :</strong> {i.UserId}</p>
             <p><strong>Profil :</strong> {i.Profil}</p>
 
-            <p><strong>Statut :</strong> {i.Satut}</p>
+            <p><strong>Statut :</strong> {i.Statut}</p>
             <p><strong>Date début :</strong> {i.Date_de_debut}</p>
             <p><strong>Échéance :</strong> {i.Echeance}</p>
             <p><strong>Date fin :</strong> {i.Date_de_fin}</p>

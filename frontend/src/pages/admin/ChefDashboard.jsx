@@ -35,14 +35,14 @@ export default function ChefDashboard() {
 
           <div
             key={i.ID}
-            className={`intervention-card ${getClass(i.Satut)}`}
+            className={`intervention-card ${getClass(i.Statut)}`}
           >
 
             <h3>{i.Descriptif}</h3>
 
             <p><strong>Utilisateur :</strong> {i.UserId}</p>
             <p><strong>Profil :</strong> {i.Profil}</p>
-            <p><strong>Statut :</strong> {i.Satut}</p>
+            <p><strong>Statut :</strong> {i.Statut}</p>
 
             <p>
               <strong>Date début :</strong>
